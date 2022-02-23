@@ -1,0 +1,32 @@
+{% load tz %}
+{% load bootstrap5 %}
+
+{% for post in posts %}
+    <div class="row my-3">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title" > {{ post.title}} </h4>
+                    <p class="card-text">
+                        {{ post.news|linebreaksbr }}
+                    </p>
+                </div>
+                <div class="card-footer d-flex align-items-center">
+                    <p class="m-0">Erstellt von {{ post.user.first_name }} {{ post.user.last_name }}, {{ post.created_at|date:"d.m.Y H:i"}}</p> 
+                    {% if request.user.is_admin %}
+                        <form  class="ms-auto" hx-delete="{% url 'news:delete_news' post.id %}" hx-target="#news_box" hx-swap="innerHTML">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-danger"> Löschen </button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% empty %}
+    <div class="row">
+        <div class="col-12">
+        <p> Zur Zeit gibt es keine Nachtichten</p>
+        </div>
+    </div>
+{% endfor %}

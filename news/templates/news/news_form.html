@@ -1,0 +1,11 @@
+{% load bootstrap5 %}
+
+<form class="row" id="news_form" role="form" hx-post="{% url 'news:create_news' %}" hx-target="this" hx-swap="outerHTML"/>
+    {% csrf_token %}
+    {% bootstrap_form news_form %}
+    <div class="md-3">
+        <input class="btn btn-success" type="submit" value="Speichern"  >
+        <a hx-get="{% url 'news:index_view' %}" hx-target="#news_form" hx-swap="outerHTML" class="btn btn-secondary">Abbrechen</a>
+    </div>
+</form>
+

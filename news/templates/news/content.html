@@ -1,0 +1,23 @@
+{% extends 'web/_base.html'  %}
+
+{% block site_head %}
+    {{ news_form.media }}
+{% endblock site_head %}
+
+{% block content %}
+    <div class="row mt-3 mb-4">
+        <div class="col-12">
+            <h1>News</h1>
+            {% if request.user.is_admin %}
+            <div hx-get="{% url 'news:index_view' %}" hx-target="this" hx-trigger="load" hx-swap="outerHTML">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div id="news_box" hx-get="{% url 'news:timeline_view' %}" hx-trigger="created_news from:body, load" hx-target="#news_box" hx-swap="innerHTML">
+        <div class="htmx-indicator">Lade Nachrichten... </div>
+    </div>
+{% endblock%}
+
+{% block site_scripts %}
+{% endblock site_scripts %}
