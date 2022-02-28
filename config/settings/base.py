@@ -55,6 +55,10 @@ INSTALLED_APPS = [
     "account",
     "mails",
     "news",
+    "teams",
+    "opponents",
+    "games",
+    "livescoring",
 ]
 
 MIDDLEWARE = [
@@ -141,7 +145,11 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 STATICFILES_DIRS = [
+<<<<<<< HEAD:config/settings/base.py
     BASE_DIR / "static",
+=======
+    BASE_DIR / "club_management/static",
+>>>>>>> 72083f9 (add new apps to settings.py):club_management/settings.py
 ]
 
 # Default primary key field type
