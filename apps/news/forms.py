@@ -13,10 +13,10 @@ class TinyMCEWidget(TinyMCE):
 class NewsForm(forms.ModelForm):
     class Meta:
         model = NewsModel
-        fields = ["title", "news"]
-        labels = {"titel": "Überschrift", "news": "Deine Nachricht"}
+        fields = ["title", "content"]
+        labels = {"titel": "Überschrift", "content": "Deine Nachricht"}
         title = forms.CharField(max_length=50)
-        news = forms.CharField(
+        content = forms.CharField(
             widget=TinyMCEWidget(attrs={"required": False, "cols": 30, "rows": 10})
         )
 
