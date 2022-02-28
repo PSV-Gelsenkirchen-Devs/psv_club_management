@@ -16,5 +16,5 @@ class NewsModel(models.Model):
 
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     title = models.CharField(verbose_name="title", max_length=50)
-    news = tinymce_models.HTMLField()
+    content = tinymce_models.HTMLField()
     created_at = models.DateTimeField(default=timezone.now)

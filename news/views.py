@@ -5,7 +5,6 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views.decorators.http import require_POST
 
-from account.models import Account
 from .forms import NewsForm
 from .models import NewsModel
 
@@ -34,7 +33,7 @@ def index_view(request):
         HttpResponse: Returns the News Timeline
     """
     response = render(request, "news/news_index.html")
-    response['HX-Trigger'] = 'created_news'
+    response["HX-Trigger"] = "created_news"
     return response
 
 
@@ -45,6 +44,7 @@ def timeline_view(request):
         "news/timeline.html",
         {"posts": posts},
     )
+
 
 @login_required
 def news_form_view(request):
@@ -70,9 +70,10 @@ def create_news_view(request):
         post.user = request.user
         post.save()
     headers = {
-        'HX-Trigger': 'createdNews',
+        "HX-Trigger": "createdNews",
     }
     return HttpResponseRedirect(reverse("news:index_view"), headers=headers)
+
 
 @login_required
 def delete_news_view(request, post_id):
