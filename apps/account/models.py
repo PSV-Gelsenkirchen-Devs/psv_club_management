@@ -1,5 +1,7 @@
+# Third Party
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
+from django.urls import reverse
 
 
 class MyAccoutManager(BaseUserManager):
@@ -82,3 +84,6 @@ class Account(AbstractBaseUser):
 
     def has_module_perms(self, app_label) -> bool:
         return True
+
+    def get_absolute_url(self):
+        return reverse("account:profil_view", kwargs={"user.id": self.pk})

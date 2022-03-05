@@ -75,8 +75,7 @@
                 <strong>{{request.user.first_name}}</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                <li><a class="dropdown-item" href="#">Einstellungen</a></li>
-                <li><a class="dropdown-item" href="#">Profil</a></li>
+                <li><a class="dropdown-item" href="{% url 'account:profil_view' request.user.id %}">Profil</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="{% url 'web:logout' %}">Logout</a></li>
             </ul>
