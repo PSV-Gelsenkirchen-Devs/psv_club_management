@@ -1,7 +1,16 @@
-{% extends 'web/_base.html'  %}
-
-{% block content %}
-<div class="p-5">
-    <p>{{user.first_name}} </p>
-</div>
-{% endblock%}
+<div id="modal-backdrop" class="modal-backdrop fade show" style="display:block;"></div>
+<div id="modal" class="modal fade show" tabindex="-1" style="display:block;">
+	<div class="modal-dialog modal-dialog-centered">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title">{{user.first_name}} {{user.last_name}}</h5>
+		</div>
+		<div class="modal-body">
+		  <p>E-Mail= {{user.email}}</p>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" onclick="closeModal()">Zurück</button>
+		</div>
+	  </div>
+	</div>
+  </div>

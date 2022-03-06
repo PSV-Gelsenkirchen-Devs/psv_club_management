@@ -1,26 +1,9 @@
 {% extends 'web/_base.html'  %}
 
 {% block content %}
-<div class="p-5">
-    <h1> Mitglieder </h1>
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Vorname</th>
-          <th scope="col">Nachname</th>
-          <th scope="col">E-Mail</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for account in accounts %}
-        <tr>
-          <td>{{account.first_name}}</td>
-          <td>{{account.last_name}}</td>
-          <td>{{account.email}}</td>
-          <td><a href="{% url 'account:profil_view' account.id %}">test</a></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+<div class="row mt-3 mb-4">
+  <div id="user_content" hx-get="{% url 'account:user_list_view' %}" hx-trigger=" load" hx-target="#user_content" hx-swap="innerHTML">
+      <div class="htmx-indicator">Lade Mitglieder... </div>
+  </div>
 </div>
 {% endblock%}

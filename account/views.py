@@ -16,11 +16,17 @@ def index(request):
     Returns:
         HttpResponse: Returns the Content Page with a User List
     """
+    return render(request, "account/content.html")
+
+
+@login_required
+def user_list_view(request):
     context = {}
 
-    accounts = Account.objects.all()
+    accounts = Account.objects.order_by("last_name").all()
     context["accounts"] = accounts
-    return render(request, "account/content.html", context)
+
+    return render(request, "account/account_index.html", context)
 
 
 @login_required
