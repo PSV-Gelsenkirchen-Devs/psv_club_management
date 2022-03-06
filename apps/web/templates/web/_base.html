@@ -9,8 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<link href="{% static 'css/all.min.css' %}" rel="stylesheet">
-		<link href="{% static 'css/style.css' %}" rel="stylesheet">
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<link href="{% static 'css/style.min.css' %}" rel="stylesheet">
 		<script src="https://unpkg.com/htmx.org@1.6.1"></script>
 		{% block site_head %}
 		{% endblock site_head %}
@@ -35,14 +34,25 @@
 					{% endblock%}
 				</div>
 			</div>
+			<div class="row">
+				<div class="">
+					<h3>News Feed</h3>
+					{% block opencontent%}
+						<div id="news_box" hx-get="{% url 'news:timeline_view' %}" hx-trigger="load" hx-target="#news_box" hx-swap="innerHTML">
+							<div class="htmx-indicator">Lade Nachrichten... </div>
+						</div>
+					{% endblock%}
+				</div>
+			</div>
 		</div>
 		{% endif%}
 	</body>
 	<script src="{% static 'js/htmx.js' %}"></script>
 	<script src="{% static 'js/sidebars.js' %}"></script>
+	<script src="{% static 'js/all.js' %}"></script>
   	<script src="{% static 'js/ext/debug.js' %}"></script>
   	<script src="{% static 'js/ext/event-header.js' %}"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<script type = "text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 	{% block site_scripts %}
 	{% endblock site_scripts %}
   	{% django_htmx_script %}
