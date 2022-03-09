@@ -1,13 +1,10 @@
-<<<<<<< HEAD
 # Standard Library
 from operator import mod
 
 # Third Party
+from account.models import Account
 from django.db import models
 from django.utils import timezone
-
-# Library
-from account.models import Account
 from opponents.models import OppTeam
 from teams.models import Team
 
@@ -43,8 +40,3 @@ class Game(models.Model):
     points_opponents = models.IntegerField(
         verbose_name="Punkte Gegner", default=0
     )
-=======
-from django.db import models
-
-# Create your models here.
->>>>>>> 4f3e804 (add game app to manage all games (later the planning tool))

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Third Party
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
@@ -71,8 +70,3 @@ class GameAdmin(ModelAdmin):
 
 
 admin.site.register(Game, GameAdmin)
-=======
-from django.contrib import admin
-
-# Register your models here.
->>>>>>> 4f3e804 (add game app to manage all games (later the planning tool))
