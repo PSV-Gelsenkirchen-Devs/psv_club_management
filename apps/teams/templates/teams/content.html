@@ -1,0 +1,16 @@
+{% extends 'web/_base.html'  %}
+
+{% block site_head %}
+    {{ news_form.media }}
+{% endblock site_head %}
+
+{% block content %}
+    <div class="row mt-3 mb-4">
+        <div id="team_list" hx-get="{% url 'teams:teams_view' %}" hx-trigger=" load" hx-target="#team_list" hx-swap="innerHTML">
+            <div class="htmx-indicator">Lade Mannschaften... </div>
+        </div>
+    </div>
+{% endblock%}
+
+{% block site_scripts %}
+{% endblock site_scripts %}

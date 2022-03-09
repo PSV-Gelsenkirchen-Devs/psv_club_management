@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Standard Library
 from operator import mod
 
@@ -42,3 +43,8 @@ class Game(models.Model):
     points_opponents = models.IntegerField(
         verbose_name="Punkte Gegner", default=0
     )
+=======
+from django.db import models
+
+# Create your models here.
+>>>>>>> 4f3e804 (add game app to manage all games (later the planning tool))
