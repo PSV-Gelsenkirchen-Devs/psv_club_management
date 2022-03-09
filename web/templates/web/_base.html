@@ -47,12 +47,12 @@
 		</div>
 		{% endif%}
 	</body>
+	<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 	<script src="{% static 'js/htmx.js' %}"></script>
 	<script src="{% static 'js/sidebars.js' %}"></script>
 	<script src="{% static 'js/all.js' %}"></script>
   	<script src="{% static 'js/ext/debug.js' %}"></script>
   	<script src="{% static 'js/ext/event-header.js' %}"></script>
-	<script type = "text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 	{% block site_scripts %}
 	{% endblock site_scripts %}
   	{% django_htmx_script %}
