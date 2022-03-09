@@ -22,3 +22,6 @@ class Team(models.Model):
     player = models.ManyToManyField(
         Account, verbose_name="Spieler", related_name="players", blank=True
     )
+
+    def __str__(self):
+        return self.name
