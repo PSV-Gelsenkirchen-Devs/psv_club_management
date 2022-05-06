@@ -1,0 +1,17 @@
+{% extends 'web/_base.html'  %}
+{% load static %}
+
+{% block site_head %}
+<link rel="stylesheet" type="text/css" href="{% static 'psv_calendar/css/calendar.min.css' %}">
+{% endblock site_head %}
+
+{% block content %}
+    <div class="row mt-3 mb-4">
+        <div id="calendar" hx-get="{% url 'psv_calendar:calendar' %}" hx-trigger=" load" hx-target="#calendar" hx-swap="innerHTML">
+            <div class="htmx-indicator">Lade Kalender... </div>
+        </div>
+    </div>
+{% endblock%}
+
+{% block site_scripts %}
+{% endblock site_scripts %}

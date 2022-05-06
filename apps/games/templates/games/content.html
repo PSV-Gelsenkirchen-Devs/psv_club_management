@@ -6,8 +6,8 @@
 
 {% block content %}
     <div class="row mt-3 mb-4">
-        <div id="team_list" hx-get="{% url 'teams:teams_list' %}" hx-trigger=" load" hx-target="#team_list" hx-swap="innerHTML">
-            <div class="htmx-indicator">Lade Mannschaften... </div>
+        <div id="team_list" hx-get="{% url 'games:games_list' %}" hx-trigger=" load" hx-target="#team_list" hx-swap="innerHTML">
+            <div class="htmx-indicator">Lade Spiele... </div>
         </div>
     </div>
 {% endblock%}

@@ -7,7 +7,8 @@ from .models import Game
 
 class GameAdmin(ModelAdmin):
     list_display = (
-        "datetime",
+        "start_time",
+        "end_time",
         "game_day",
         "team",
         "opp_team",
@@ -16,7 +17,7 @@ class GameAdmin(ModelAdmin):
         "game_link",
     )
     search_fields = (
-        "datetime",
+        "start_time",
         "game_day",
         "team",
         "opp_team",
@@ -33,7 +34,8 @@ class GameAdmin(ModelAdmin):
             None,
             {
                 "fields": (
-                    "datetime",
+                    "start_time",
+                    "end_time",
                     "game_day",
                     "team",
                     "opp_team",
@@ -56,7 +58,8 @@ class GameAdmin(ModelAdmin):
             {
                 "classes": ("wide",),
                 "fields": (
-                    "datetime",
+                    "start_time",
+                    "end_time",
                     "game_day",
                     "team",
                     "opp_team",

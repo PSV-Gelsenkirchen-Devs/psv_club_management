@@ -1,0 +1,58 @@
+.calendar {
+  margin: auto;
+  width: 100%;
+  .date {
+    color:cadetblue;
+    float: right;
+    font-size: 0.75rem;
+    padding: 0 0.75rem 0 0;
+  }
+
+  tr, td {
+    border: 1px solid #212529 ;
+  }
+
+  th {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  td {
+    height: 6.5rem;
+    padding: 0.5rem 0 0 0.25rem;
+    width: 15rem;
+    min-width: 120px;
+    a {
+      color: #212529;
+      text-decoration: none;
+    }
+  }
+
+  ul {
+    font-size: 0.8rem;
+    height: 100%;
+    list-style: none;
+    padding: 1.15rem .25rem 0 0;
+    li {
+      background-color: aqua;
+      border-radius: .8rem;
+      padding: .1rem .3rem;
+      text-align: center;
+    }
+  }
+  
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
+.btn {
+  background-color: transparent;
+  box-shadow: 0 0 0 0;
+  color: #212529;
+  outline: none;
+  &:hover{
+    color: white;
+  }
+}

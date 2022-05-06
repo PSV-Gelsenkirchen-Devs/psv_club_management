@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     # Own Apps
     "web",
     "account",
+    "psv_calendar",
     "mails",
     "news",
     "teams",

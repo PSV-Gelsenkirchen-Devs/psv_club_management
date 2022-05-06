@@ -1,5 +1,5 @@
 function closeModal() {
-	var container = document.getElementById("user_modals")
+	var container = document.getElementById("modals")
 	var backdrop = document.getElementById("modal-backdrop")
 	var modal = document.getElementById("modal")
 

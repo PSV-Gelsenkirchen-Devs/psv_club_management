@@ -1,0 +1,22 @@
+{% extends 'web/_base.html'  %}
+{% load static %}
+
+{% block site_head %}
+{% endblock site_head %}
+
+{% block content %}
+    <h1> Livescorings </h1>
+    <div class="row mt-3 mb-4">
+        <div id="active_livescoring" hx-get="{% url 'livescoring:active_livescoring' %}" hx-trigger=" load" hx-target="#active_livescoring" hx-swap="innerHTML">
+            <div class="htmx-indicator">Lade aktive Ticker... </div>
+        </div> 
+    </div>
+    <div class="row mt-3 mb-4">
+        <div id="todays_matches" hx-get="{% url 'livescoring:matches' %}" hx-trigger=" load" hx-target="#todays_matches" hx-swap="innerHTML">
+            <div class="htmx-indicator">Lade Spiele... </div>
+        </div> 
+    </div>
+{% endblock%}
+
+{% block site_scripts %}
+{% endblock site_scripts %}

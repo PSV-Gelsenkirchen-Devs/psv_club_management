@@ -1,6 +1,6 @@
 # Third Party
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import render
 
 from .models import Team
 
@@ -19,5 +19,6 @@ def index(request):
 
 
 @login_required
-def teams_view(request):
-    return render(request, "teams/teams_index.html", {"teams": teams})
+def teams_list(request):
+    teams = Team.objects.order_by("name")
+    return render(request, "teams/teams_list.html", {"teams": teams})

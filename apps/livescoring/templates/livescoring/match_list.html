@@ -1,0 +1,45 @@
+<h2> Heutige Spiele </h2>
+{% if not games %}
+<div> 
+    Entschuldige es sind keine Spiele heute vorhanden.
+</div> 
+{% else %}
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Spieltag</th>
+            <th scope="col">Heimmannschaft</th>
+            <th scope="col">Auswärtsmannschaft</th>
+            <th scope="col">Datum</th>
+            <th scope="col">Uhrzeit</th>
+            <th scope="col">Verantwortlicher</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for game in games %}
+        <tr>
+            <td>{{game.game_day}}</td>
+            {% if game.home %}
+                <td>{{game.team}}</td>
+                <td>{{game.opp_team}}</td>
+            {% else %}
+                <td>{{game.opp_team}}</td>
+                <td>{{game.team}}</td>
+            {% endif %}
+            <td>{{game.start_time|date:"d.m.Y"}}</td>
+            <td>{{game.start_time|time:"H:i"}}</td>
+            <td>{{game.game_admin}}</td>
+            <td>
+                <a role='button' hx-get="{% url 'games:detail_view' game.id %}" hx-trigger="click" hx-target="#modals" title="Zu den Game Details">
+                  <i class="fas fa-eye me-2"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="modals"></div>
+{% endif %}

@@ -10,12 +10,26 @@ class AccountAdmin(UserAdmin):
         "email",
         "first_name",
         "last_name",
+        "birthdate",
+        "gender",
         "last_login",
         "date_joined",
-        "is_admin",
+        "is_member",
+        "is_board",
+        "is_coach",
         "is_staff",
+        "is_superuser",
     )
-    search_fields = ("email", "first_name", "last_name", "is_admin", "is_staff")
+    search_fields = (
+        "email",
+        "first_name",
+        "last_name",
+        "birthdate" "is_admin",
+        "is_member",
+        "is_board",
+        "is_coach",
+        "is_active",
+    )
     readonly_fields = ("date_joined", "last_login")
 
     filter_horizontal = ()
@@ -24,13 +38,25 @@ class AccountAdmin(UserAdmin):
         (
             None,
             {
-                "fields": ("email", "first_name", "last_name", "birthdate"),
+                "fields": (
+                    "email",
+                    "first_name",
+                    "last_name",
+                    "birthdate",
+                    "gender",
+                ),
             },
         ),
         (
             "Permissions",
             {
-                "fields": ("is_staff", "is_active"),
+                "fields": (
+                    "is_admin",
+                    "is_member",
+                    "is_board",
+                    "is_coach",
+                    "is_active",
+                ),
             },
         ),
     )
@@ -44,6 +70,7 @@ class AccountAdmin(UserAdmin):
                     "first_name",
                     "last_name",
                     "birthdate",
+                    "gender",
                     "password1",
                     "password2",
                     "is_staff",

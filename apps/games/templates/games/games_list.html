@@ -1,0 +1,49 @@
+<h1> Spiele </h1>
+{% if not games %}
+<div> 
+    Entschuldige es sind keine Spiele vorhanden.
+</div> 
+{% else %}
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Spieltag</th>
+            <th scope="col">Mannschaft</th>
+            <th scope="col">Gegner</th>
+            <th scope="col">Heimspiel</th>
+            <th scope="col">Datum</th>
+            <th scope="col">Uhrzeit</th>
+            <th scope="col">Verantwortlicher</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for game in games %}
+        <tr>
+            <td>{{game.game_day}}</td>
+            <td>{{game.team}}</td>
+            <td>{{game.opp_team}}</td>
+            {% if game.home %}
+                <td><i class="text-success fas fa-check-circle"></i></td>
+            {% else %}
+                <td><i class="text-danger fas fa-minus-circle"></i></td>
+            {% endif %}
+            <td>{{game.datetime|date:"d.m.Y"}}</td>
+            <td>{{game.datetime|time:"H:i"}}</td>
+            <td>{{game.game_admin}}</td>
+            <td>
+                <a role='button' hx-get="{% url 'games:detail_view' game.id %}" hx-trigger="click" hx-target="#modals" title="Zu den Game Details">
+                  <i class="fas fa-eye me-2"></i>
+                </a>
+                <a title="Turnier.de" href="{{game.game_link}}" target="_blank">
+                    <i class="fas fa-external-link-alt small"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="modals"></div>
+{% endif %}

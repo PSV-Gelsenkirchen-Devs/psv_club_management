@@ -1,4 +1,9 @@
 <h1> Mannschaften </h1>
+{% if not teams %}
+<div> 
+    Entschuldige es sind keine Teams vorhanden.
+</div> 
+{% else %}
 <div class="table-responsive">
     <table class="table table-striped table-hover">
         <thead>
@@ -31,7 +36,10 @@
                 {% endfor %}
             </td>
         </tr>
+        {% empty%}
+        <td> keine Spieler vorhanden </td>
         {% endfor %}
         </tbody>
     </table>
 </div>
+{% endif %}

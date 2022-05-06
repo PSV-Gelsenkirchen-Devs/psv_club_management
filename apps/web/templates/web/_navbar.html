@@ -36,16 +36,20 @@
             </div>
             <div class="nav-item mt-3">
                 <span class="">Kalender</span>
-                <a href="#"class="nav-link text-white">
+                <a href="{% url 'psv_calendar:index' %}"class="nav-link text-white">
                     <i class="fas fa-calendar-alt"></i>
                     <span>Übersicht</span>
                 </a>
             </div>
             <div class="nav-item mt-3">
                 <span class="text-sm">Spiele</span>
-                <a href="#"class="nav-link text-white">
+                <a href="{% url 'games:index' %}" class="nav-link text-white">
                     <i class="fas fa-trophy"></i>
                     <span>Übersicht</span>
+                </a>
+                <a href="{% url 'livescoring:index' %}" class="nav-link text-white">
+                    <i class="fas fa-laptop-medical"></i>
+                    <span>Livescoring</span>
                 </a>
             </div>
             <div class="nav-item mt-3">
@@ -68,18 +72,9 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                 <li><a class="dropdown-item" href="{% url 'account:profil_view' request.user.id %}">Profil</a></li>
-<<<<<<< HEAD:apps/web/templates/web/_navbar.html
-<<<<<<< HEAD:apps/web/templates/web/_navbar.html
                 {% if request.user.is_admin %}
                     <li><a class="dropdown-item" href="{% url 'admin:index'%}">Administration</a></li>
                 {% endif %}
-=======
->>>>>>> 8811189 (add frist example of Profil page):web/templates/web/_navbar.html
-=======
-                {% if request.user.is_admin %}
-                    <li><a class="dropdown-item" href="{% url 'admin:index'%}">Administration</a></li>
-                {% endif %}
->>>>>>> ea137c7 (add Bootstrap to scss, show User Profil as Modal with Bootstrap and htmx):web/templates/web/_navbar.html
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="{% url 'web:logout' %}">Logout</a></li>
             </ul>

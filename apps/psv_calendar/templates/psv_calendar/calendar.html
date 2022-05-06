@@ -1,0 +1,6 @@
+<div class="clearfix">
+	<a class="btn btn-dark left" hx-get="{% url 'psv_calendar:calendar' %}?{{ prev_month }}" hx-target="#calendar" hx-swap="innerHTML"> Previous Month </a>
+	<a class="btn btn-dark right" hx-get="{% url 'psv_calendar:calendar' %}?{{ next_month }}" hx-target="#calendar" hx-swap="innerHTML"> Next Month </a>
+</div>
+
+{{ calendar }}

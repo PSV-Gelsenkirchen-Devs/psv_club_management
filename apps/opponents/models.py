@@ -27,5 +27,5 @@ class OppTeam(models.Model):
     player = models.ManyToManyField(OppPlayer, blank=True)
 
     def __str__(self):
-        full_name = self.club.name + " - " + self.name
+        full_name = self.name + " - " + self.club.name
         return full_name

@@ -21,9 +21,12 @@ from django.urls import include, path
 urlpatterns = [
     path("admin/", admin.site.urls, name="admin"),
     path("user/", include("account.urls")),
+    path("calendar/", include("psv_calendar.urls")),
     path("mails/", include("mails.urls")),
     path("news/", include("news.urls")),
+    path("games/", include("games.urls")),
     path("teams/", include("teams.urls")),
+    path("livescoring/", include("livescoring.urls")),
     path("", include("web.urls")),
     # 3rd Party
     path("tinymce/", include("tinymce.urls")),

@@ -1,16 +1,14 @@
-# Standard Library
-from operator import mod
-
 # Third Party
 from account.models import Account
 from django.db import models
+from django.forms import ValidationError
+from django.urls import reverse
 from django.utils import timezone
 from opponents.models import OppTeam
 from teams.models import Team
 
 
 class Game(models.Model):
-
     game_admin = models.ForeignKey(
         Account, verbose_name="Spiel Admin", on_delete=models.DO_NOTHING
     )
@@ -32,11 +30,18 @@ class Game(models.Model):
     game_link = models.URLField(
         verbose_name="Turnier.de", blank=True, null=True
     )
-    datetime = models.DateTimeField(verbose_name="datetime")
+    start_time = models.DateTimeField(
+        verbose_name="Startzeit", default=timezone.now
+    )
+    end_time = models.DateTimeField(
+        verbose_name="Endzeit", default=timezone.now
+    )
     created_at = models.DateTimeField(default=timezone.now)
     home = models.BooleanField(verbose_name="Heimspiel", default=True)
-    winner = models.BooleanField(verbose_name="Gewonnen", default=None)
-    points_team = models.IntegerField(verbose_name="Punkte PSV", default=0)
-    points_opponents = models.IntegerField(
-        verbose_name="Punkte Gegner", default=0
-    )
+
+    def get_absolute_url(self):
+        return reverse("games:detail_view", kwargs={"game.id": self.pk})
+
+    def clean(self):
+        if self.end_time <= self.start_time:
+            raise ValidationError("Ending times must after starting times")
